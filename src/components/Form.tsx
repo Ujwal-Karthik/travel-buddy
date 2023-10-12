@@ -1,11 +1,22 @@
 import React, { useState } from "react";
+import { Item } from "../types/types";
 
-function Form() {
+interface formProps {
+  onAddItem: (item: Item) => void;
+}
+
+function Form({ onAddItem }: formProps) {
   const [itemName, setItemName] = useState("");
   const [itemQuantity, setItemQuantity] = useState(1);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (!itemName) return;
+    const newItem = { itemName, itemQuantity, packed: false, id: Date.now() };
+    console.log(newItem);
+    onAddItem(newItem);
+    setItemName("");
+    setItemQuantity(1);
   };
 
   const onItemNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
