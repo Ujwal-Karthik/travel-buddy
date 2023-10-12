@@ -13,7 +13,6 @@ function Form({ onAddItem }: formProps) {
     event.preventDefault();
     if (!itemName) return;
     const newItem = { itemName, itemQuantity, packed: false, id: Date.now() };
-    console.log(newItem);
     onAddItem(newItem);
     setItemName("");
     setItemQuantity(1);

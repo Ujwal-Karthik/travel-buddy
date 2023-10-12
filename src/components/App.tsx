@@ -32,7 +32,7 @@ function App() {
         onDeleteItem={handleDeleteItem}
         onToggleCheckBox={handleToggleCheckBox}
       />
-      <Stats />
+      <Stats items={items} />
     </div>
   );
 }
